@@ -39,7 +39,6 @@ void _listenForCartChanges() {
   @override
   void dispose() {
     super.dispose();
-
     _cartStream.listen((snapshot) {}).cancel();
   }
 
@@ -66,10 +65,6 @@ void _listenForCartChanges() {
       body: IndexedStack(
         index: _selectedIndex,
         children: screens,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCartItemCount,
-        child: Icon(Icons.add),
       ),
     );
   }
