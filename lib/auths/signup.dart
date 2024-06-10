@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:task00/auths/login.dart';
+import 'package:task00/screens/BNB.dart';
 import 'package:task00/screens/home.dart';
 class Create extends StatefulWidget {
   const Create({super.key});
@@ -41,6 +43,19 @@ class _CreateState extends State<Create> {
                 hintText: "Enter ur pass..."
               ),),
             ),
+            SizedBox(height: 10,),
+                        Row(
+              children: [
+                SizedBox(width: 120,),
+                Text("alerdy have an account.."),
+                InkWell(
+                  child: Text("login"),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
+                  },
+                )
+              ],
+            ),
             SizedBox(height: 30,),
             ElevatedButton(onPressed: (){
               create(_email.text, _pass.text);
@@ -57,7 +72,7 @@ class _CreateState extends State<Create> {
     try{
       final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: pass);
       await addUserdetails(email);
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Home()));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Bnb()));
     }
     on FirebaseAuthException catch(e){
       if(e.code == "weak-password"){

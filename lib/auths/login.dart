@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task00/auths/signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:task00/screens/BNB.dart';
 import 'package:task00/screens/home.dart';
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -69,7 +70,7 @@ class _LoginState extends State<Login> {
     email: email,
     password: pass,
   );
-  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Home()));
+  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Bnb()));
 } on FirebaseAuthException catch (e) {
   if (e.code == 'user-not-found') {
     print('No user found for that email.');
@@ -80,4 +81,3 @@ class _LoginState extends State<Login> {
   }
 
 }
-
