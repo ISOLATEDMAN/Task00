@@ -89,12 +89,13 @@ class _HomeState extends State<Home> {
           }
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showDialogBox();
-        },
-        child: const Icon(Icons.add),
-      ),
+floatingActionButton: FloatingActionButton(
+  onPressed: () {
+    showDialogBox(); // Call the showDialogBox method to display the dialog
+  },
+  child: Icon(Icons.add),
+),
+
     );
   }
 

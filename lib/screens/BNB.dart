@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:task00/screens/cart.dart';
 import 'package:task00/screens/home.dart';
 
+//yo to add the filee
 class Bnb extends StatefulWidget {
   const Bnb({super.key});
 
@@ -39,7 +40,6 @@ void _listenForCartChanges() {
   @override
   void dispose() {
     super.dispose();
-
     _cartStream.listen((snapshot) {}).cancel();
   }
 
@@ -66,10 +66,6 @@ void _listenForCartChanges() {
       body: IndexedStack(
         index: _selectedIndex,
         children: screens,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCartItemCount,
-        child: Icon(Icons.add),
       ),
     );
   }
